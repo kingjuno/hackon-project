@@ -10,6 +10,11 @@ def country(name):
 def enter():
     return render_template('enter_country.html',data=all())
 
+@app.route('/resource/',methods=['GET','POST'])
+def resource():
+    return render_template('resource.html')
+
+
 @app.route('/')
 def index():
     return render_template('index.html',data=all())
