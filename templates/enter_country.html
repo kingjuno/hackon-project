@@ -60,17 +60,20 @@
         <ul>
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
           <li><a class="nav-link scrollto" href="/#about">About</a></li>
+          <li><a class="nav-link scrollto" href="/country">Live Data</a></li>
           <li><a class="nav-link scrollto" href="/#cards">Current Status</a></li>
           <li><a class="nav-link scrollto" href="/#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#">Resource</a></li>
           <li class="dropdown"><a href="#"><span>Bots</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">CoviRes</a></li>
-              <li><a href="#">CoviReq</a></li>
-              <li><a href="#">Shield Bot</a></li>
+              <li><a href="https://telegram.me/coviresbot">CoviRes</a></li>
+              <li><a href="https://telegram.me/covireqbot">CoviReq</a></li>
+              <li><a href="https://twitter.com/ShieldBot1">Shield Bot</a></li>
               <li><a href="#">Audio Detection</a></li>
             </ul>
+          
           </li>
-        </ul>
+          </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
@@ -78,9 +81,9 @@
 <!-- ======= Cards ======= -->      
           <center><br>
             <div class="country">
-                <form action="/country" method="POST" class="country_form">
-                    <input type="text" placeholder="Enter Country" class="country_input"><br><br>
-                    <input type="button" value="Submit" class="enter_country">
+                <form action="http://127.0.0.1:5000/country/" method="POST" class="country_form">
+                    <input type="text" name="country" placeholder="Enter Country" class="country_input"><br><br>
+                    <input type="submit" value="submit" class="enter_country">
                 </form>
           </center>
 
@@ -90,7 +93,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" style="position: absolute;bottom: 0;width: 100%;">
     <div class="container">
       <div class="copyright">
         &copy; Copyright 2021. All Rights Reserved
