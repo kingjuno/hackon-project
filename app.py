@@ -28,7 +28,7 @@ def resource():
     else:    
         return render_template('resource_data.html', tweets = tweets)
 
-@app.route('/resources/')
+@app.route('/resource/')
 def resource_home():
     return render_template('resource.html')
 
