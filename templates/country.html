@@ -58,19 +58,17 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#cards">Current Status</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#">Resource</a></li>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/#about">About</a></li>
+          <li><a class="nav-link scrollto" href="/#cards">Current Status</a></li>
+          <li><a class="nav-link scrollto" href="/#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Bots</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="https://telegram.me/coviresbot">CoviRes</a></li>
-              <li><a href="https://telegram.me/covireqbot">CoviReq</a></li>
-              <li><a href="https://twitter.com/ShieldBot1">Shield Bot</a></li>
+              <li><a href="#">CoviRes</a></li>
+              <li><a href="#">CoviReq</a></li>
+              <li><a href="#">Shield Bot</a></li>
               <li><a href="#">Audio Detection</a></li>
             </ul>
-          
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -78,102 +76,31 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
-      <h1>Welcome</h1>
-      <h2>Project to analyze and fight Covid.</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-
-      <div class="section-title">
-        <span>About</span>
-        <h2>About</h2>
-      </div>
-
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-            <img src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2021/04/mask-1619762934.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-            <h3>What CoWarrior does?</h3>
-            <p class="fst-italic">
-              In times of a major crisis like this, it is important to stay strong and more importantly, be updated on the latest info.
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> Audio detection.</li>
-              <li><i class="bi bi-check-circle"></i> Covid related resources.</li>
-              <li><i class="bi bi-check-circle"></i> World Covid data.</li>
-            </ul>
-            <p>
-              Protect yourself and others around you by knowing the facts and taking appropriate precautions. Follow advice provided by your local health authority.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-4" data-aos="fade-up">
-            <div class="box">
-              <span>01</span>
-              <h4>Analyzer</h4>
-              <p>Region based real-time Covid data</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
-            <div class="box">
-              <span>02</span>
-              <h4>CovidRes</h4>
-              <p>Web app for all Covid resources</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box">
-              <span>03</span>
-              <h4>Shield Bot</h4>
-              <p>Twitter bot</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Why Us Section -->
-
     <!-- ======= Cards ======= -->
     <section id="cards" class="cards">
 
       <div class="section-title">
-        <span>Current Status</span>
-        <h2>Current Status</h2>
+        <span>Current Status-{{data[1]['country']}}</span>
+        <h2>Current Status-{{data[1]['country']}}</h2>
       </div>
-
-      <div class="container">
+      
+        <div class="container">
 
         <div class="row">
-
+             
+            <center>
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="box">
+                      <img src={{data[1]['flag']}} alt="alternatetext">
+                    </div>
+                  </div>
+            </center>
+          
           <div class="col-lg-4" data-aos="fade-up">
             <div class="box">
               <span>01</span>
               <h4>Total Cases</h4>
-              <p>{{data['cases']}}</p>
+              <p>{{data[1]['cases']}}</p>
             </div>
           </div>
 
@@ -181,7 +108,7 @@
             <div class="box">
               <span>02</span>
               <h4>Total Recovered</h4>
-              <p>{{data['recovered']}}</p>
+              <p>{{data[1]['recovered']}}</p>
             </div>
           </div>
 
@@ -189,7 +116,7 @@
             <div class="box">
               <span>03</span>
               <h4>Total Deaths</h4>
-              <p>{{data['deaths']}}</p>
+              <p>{{data[1]['deaths']}}</p>
             </div>
           </div>
         
@@ -197,7 +124,7 @@
             <div class="box">
               <span>04</span>
               <h4>New Cases Today</h4>
-              <p>{{data["todayCases"]}}</p>
+              <p>{{data[1]["todayCases"]}}</p>
             </div>
           </div>
           
@@ -205,7 +132,7 @@
             <div class="box">
               <span>05</span>
               <h4>Recovered Today</h4>
-              <p>{{data["todayRecovered"]}}</p>
+              <p>{{data[1]["todayRecovered"]}}</p>
             </div>
           </div>
 
@@ -213,23 +140,23 @@
             <div class="box">
               <span>06</span>
               <h4>New Deaths Today</h4>
-              <p>{{data["todayDeaths"]}}</p>
+              <p>{{data[1]["todayDeaths"]}}</p>
             </div>
           </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="900">
+          <center>
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="750">
             <div class="box">
               <span>07</span>
               <h4>Active Cases</h4>
-              <p>{{data["active"]}}</p>
+              <p>{{data[1]["active"]}}</p>
             </div>
           </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="1050">
+          </center>
+          <!-- <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="1050">
             <div class="box">
               <span>08</span>
               <h4>Affected Countries</h4>
-              <p>{{data["affectedCountries"]}}</p>
+              <p>{{data[1]["affectedCountries"]}}</p>
             </div>
           </div>
 
@@ -237,79 +164,15 @@
             <div class="box">
               <span>09</span>
               <h4>Critical</h4>
-              <p>{{data["critical"]}}</p>
+              <p>{{data[1]["critical"]}}</p>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
       </div>
     </section>
-    
 
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container">
-
-        <div class="section-title">
-          <span>Team</span>
-          <h2>Team</h2>
-          <p>amHACKS</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
-            <div class="member">
-              <img src="https://api.amfoss.in/static/uploads/images/dp/018d0f75-b750-4be7-9799-8b599b8e5ae1.jpg" alt="">
-              <h4>Anurag Vinodkumar</h4>
-              <span>Member of amFOSS</span>
-              <p>
-                Front-End
-              </p>
-              <div class="social">
-                <a href="#"><i class="bi bi-github"></i></a>
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
-            <div class="member">
-              <img src="https://avatars.githubusercontent.com/u/69108486?v=4" alt="">
-              <h4>Geo Jolly</h4>
-              <span>Member of amFOSS</span>
-              <p>
-                Back-End
-              </p>
-              <div class="social">
-                <a href="#"><i class="bi bi-github"></i></a>
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
-            <div class="member">
-              <img src="https://api.amfoss.in/static/uploads/images/dp/10284c91-2e3e-4127-bb2f-d7ccbfb9d5d2.jpeg" alt="">
-              <h4>Rishab Mudliar</h4>
-              <span>Member of amFOSS</span>
-              <p>
-                Project idea
-              </p>
-              <div class="social">
-                <a href="#"><i class="bi bi-github"></i></a>
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Team Section -->
 
   </main><!-- End #main -->
 
