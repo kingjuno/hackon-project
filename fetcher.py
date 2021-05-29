@@ -1,4 +1,16 @@
 import requests
+import os
+from dotenv import load_dotenv
+import tweepy
+import time
+
+# load_dotenv()
+# consumer_key = os.getenv('consumer_key')
+# consumer_secret = os.getenv('consumer_secret')
+# access_token = os.getenv('access_token')
+# access_token_secret = os.getenv('access_token_secret')
+
+
 
 def all():
     data=requests.get("https://disease.sh/v3/covid-19/all").json()
@@ -26,26 +38,34 @@ def specific_data(location):
     except:
          return (False,"error")
 
-# def scrapetweets(city,option):
-    
-#     new_search = "verified "+ city +" "+ option  +" -'not verified' -'un verified' -filter:retweets -urgent -unverified -needed -required -need -needs -requirement "
-#     link=[]
+def get_tweets(city, resource):
+    access_token="1387640944195903492-kC4sh7sQFIHzJl9lo4vCcPi5KTKePV"
+    access_token_secret='ZzAAyLjUVgfNSRC2kliYHXYfLGLww9BEj5QW6SCDygRTj'
+    consumer_key="lfoBP7R7l4nC2TNIc4xmviTfV"
+    consumer_secret="Y9jVGYuRcMd55PUaoXtRpFZNouRbPZTvW4P0J0gkXxVi8e9hmw"
 
-#     for tweet in tweepy.Cursor(api.search, q=new_search, lang="en",count=100,since=dt).items(5):
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
+    tweets_list=[]
+    query = "verified {} {} -not verified -un verified -urgent -unverified -needed -required -need -needs".format(city, resource)
+    count = 15
 
-#         try: 
-#             data = [tweet.id]
-#             status = api.get_status(tweet.id)
-#             created_at = status.created_at
-#             temp_time = created_at.strftime(format)
-#             final_time = time_converter(str(temp_time))
-#             link.append(f"https://twitter.com/anyuser/status/"+str(data[0]) + " " + str(final_time))
+    try:
+        tweets = api.search(q = query,count = count, tweet_mode = 'extended')
+        print(tweets)
+        #tweets_list = [[tweet.created_at, tweet.id, tweet.full_text] for tweet in tweets]
+        #tweets_df = pd.DataFrame(tweets_list)
         
-#         except tweepy.TweepError as e:
-#             print(e.reason)
-#             continue
+        print(tweets)
+        for tweet in tweets:
+            if 'retweeted_status' in tweet._json:
+                tweets_list.append([tweet.id_str, tweet.user.name, tweet.user.screen_name, tweet._json['retweeted_status']['full_text']])
+            else:
+                tweets_list.append([tweet.id_str, tweet.user.name, tweet.user.screen_name, tweet.full_text])
+    except BaseException as e:
+        print("failed", str(e))
+        time.sleep(3)
 
-#         except StopIteration:
-#             break
+    return tweets_list
 
-#     return link

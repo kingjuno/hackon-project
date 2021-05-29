@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
-from fetcher import all,specific_data
+from fetcher import *
 app = Flask(__name__)
 
 @app.route('/country/<name>', methods=['GET','POST'])
@@ -17,8 +17,19 @@ def enter():
             return render_template('index.html',data=all())
     return render_template('enter_country.html')
 
-@app.route('/resource/',methods=['GET','POST'])
+@app.route('/info/', methods = ['GET','POST'])
 def resource():
+    city = request.form["n1"]
+    required_resource = request.form["n2"]
+
+    tweets = get_tweets(city, required_resource)
+    if len(tweets) == 0:
+        return render_template('error.html')
+    else:    
+        return render_template('resource_data.html', tweets = tweets)
+
+@app.route('/resources/')
+def resource_home():
     return render_template('resource.html')
 
 
