@@ -7,4 +7,3 @@ MarkupSafe==1.1.1
 Werkzeug==0.15.6
 tweepy
 requests
-dotenv
