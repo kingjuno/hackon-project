@@ -1,10 +1,14 @@
 import requests
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import tweepy
 import time
 
-
+# load_dotenv()
+# consumer_key = os.getenv('consumer_key')
+# consumer_secret = os.getenv('consumer_secret')
+# access_token = os.getenv('access_token')
+# access_token_secret = os.getenv('access_token_secret')
 
 
 
@@ -35,11 +39,11 @@ def specific_data(location):
          return (False,"error")
 
 def get_tweets(city, resource):
-    load_dotenv()
-    consumer_key = os.getenv('consumer_key')
-    consumer_secret = os.getenv('consumer_secret')
-    access_token = os.getenv('access_token')
-    access_token_secret = os.getenv('access_token_secret')
+    access_token="1387640944195903492-kC4sh7sQFIHzJl9lo4vCcPi5KTKePV"
+    access_token_secret='ZzAAyLjUVgfNSRC2kliYHXYfLGLww9BEj5QW6SCDygRTj'
+    consumer_key="lfoBP7R7l4nC2TNIc4xmviTfV"
+    consumer_secret="Y9jVGYuRcMd55PUaoXtRpFZNouRbPZTvW4P0J0gkXxVi8e9hmw"
+
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
@@ -64,4 +68,3 @@ def get_tweets(city, resource):
         time.sleep(3)
 
     return tweets_list
-
