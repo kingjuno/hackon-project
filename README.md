@@ -42,4 +42,4 @@ python app..py
 
 
 ## Deployment
-<a href="https://cowarrior.herokuapp.com/h">CoWarrier</a>
+<a href="https://cowarrior.herokuapp.com/">CoWarrier</a>
