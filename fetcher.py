@@ -68,3 +68,4 @@ def get_tweets(city, resource):
         time.sleep(3)
 
     return tweets_list
+
