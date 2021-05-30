@@ -5,16 +5,15 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ url_for('static', filename='/assets/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ url_for('static', filename='/assets/css/style.css') }}" rel="stylesheet">
-
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Day - v4.2.0
   * Template URL: https://bootstrapmade.com/day-multipurpose-html-template-for-free/
@@ -27,8 +26,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="colorlib.com">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
-    <link href="{{ url_for('static', filename='/assets/css/main.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='../assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
     <style>
       a:link, a:visited 
       {
@@ -103,7 +102,7 @@
                   </select>
                 </div>
               </div>
-              <script src="static/js/extention/choices.js"></script>
+              <script src="{{ url_for('static', filename='assets/js/extention/choices.js') }}"></script>
 
               <div class="input-field">
                 <div class="input-select">
@@ -145,7 +144,7 @@
         </div>
       </form>
     </div>
-    <script src="/static/js/extention/choices.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/extention/choices.js') }}"></script>
     <script>
       const customSelects = document.querySelectorAll("select");
       const deleteBtn = document.getElementById('delete')
@@ -184,8 +183,8 @@
         const deleteAll = form.querySelector('input[name="n1"]');
       });
     </script>
-    <script src="../static/assets/js/jquery.js"></script>
-    <script src="../static/assets/js/jquery.localize.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.localize.js') }}"></script>
     <script>
       $('[data-localize]').localize("mylanguage",{language:"en"});
     </script>
